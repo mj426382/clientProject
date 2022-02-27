@@ -1,0 +1,27 @@
+.header{
+  background-color: #FF5959;
+  display: flex;
+  flex-direction: row;
+  padding: 2em;
+}
+
+.right-side-nav{
+  width: 30%;
+  margin-left: auto;
+}
+
+a{
+  text-decoration: none;
+  margin-left: 1em;
+  color: #EEF2FF;
+  text-transform: uppercase;
+  font-family: 'Oswald', sans-serif;
+}
+
+.right-side-nav a:hover{
+  color: #676FA3;
+}
+
+.active{
+  color: #676FA3;
+}

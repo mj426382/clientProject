@@ -1,0 +1,253 @@
+<div class="container">
+
+
+  <div fxLayout="row wrap" fxLayoutGap="25px grid" style="width: 1300px">
+
+    <div fxFlex="50%" fxFlex.xs="100%" fxFlex.sm="100%">
+      <div class="table-card">
+        <h3 (click)="showStaticVerbsTable()">Czasowniki statyczne</h3>
+        <hr>
+
+        <table class="static hide" id="static-table">
+          <tr>
+            <th>czasownik statyczny angielski</th>
+            <th>czasownik po polsku</th>
+          </tr>
+          <tr *ngFor="let verb of tables['static_verbs']">
+            <td>{{verb.english}}</td>
+            <td>{{verb.polish}}</td>
+          </tr>
+        </table>
+
+      </div>
+    </div>
+
+    <div fxFlex="50%" fxFlex.xs="100%" fxFlex.sm="100%">
+      <div class="table-card">
+        <h3 (click)="showContextVerbsTable()">Czasowniki które mogą być statyczne lub nie, w zależności od
+          kontekstu</h3>
+        <hr>
+
+        <table class="static hide" style="text-align: left" id="context-table">
+          <ng-container *ngFor="let verb of tables['context_verbs']" [ngTemplateOutlet]="contextVerb"
+                        [ngTemplateOutletContext]="{verb: verb}">
+
+          </ng-container>
+
+        </table>
+
+      </div>
+    </div>
+
+    <div fxFlex="100%" fxFlex.xs="100%" fxFlex.sm="100%">
+      <div class="table-card">
+        <h3 (click)="showIrregularVerbsTable()">Czasowniki nieregularne</h3>
+        <hr>
+
+        <table class="static hide" id="irregular-table">
+          <tr>
+            <th>Czasownik polski</th>
+            <th>Czasownik angielski podstawowy</th>
+            <th>Czasownik angielski Past Simple</th>
+            <th>Czasownik angielski Past Participle</th>
+          </tr>
+          <tr *ngFor="let verb of tables['irregular_verbs']">
+            <td>{{verb.polish}}</td>
+            <td>{{verb.english}}</td>
+            <td>{{verb.english_past_simple}}</td>
+            <td>{{verb.english_past_participle}}</td>
+          </tr>
+
+        </table>
+
+      </div>
+    </div>
+
+    <div fxFlex="100%" fxFlex.xs="100%" fxFlex.sm="100%">
+      <div class="table-card">
+        <h3 (click)="showPersonalTable()">Zaimki osobowe / przymiotniki</h3>
+        <hr>
+
+        <table class="static hide" id="personal-table">
+          <tr>
+            <th>Zaimek osobowy podmiotu</th>
+            <th>Zaimek osobowy dopełnienia</th>
+            <th>Przymiotnik dzierżawczy(+rzeczownik)</th>
+            <th>Przymiotnik dzierżawczy bez okolicznika</th>
+            <th>Zaimek zwrotny</th>
+          </tr>
+          <tr *ngFor="let verb of tables['personal_pronouns']">
+            <td>{{verb.personal_pronoun}}</td>
+            <td>{{verb.personal_object_pronoun}}</td>
+            <td>{{verb.possessive_adjective}}</td>
+            <td>{{verb.possessive_adjective_without_adjective}}</td>
+            <td>{{verb.reflexive_pronoun}}</td>
+          </tr>
+
+        </table>
+
+      </div>
+    </div>
+
+    <div fxFlex="25%" fxFlex.xs="25%" fxFlex.sm="25%">
+      <div class="table-card">
+        <h3 (click)="showDemonstrativeTable()">Zaimki wskazujące</h3>
+        <hr>
+
+        <table class="static hide" id="demonstrative-table">
+          <tr>
+            <th>Liczba pojedyńcza</th>
+            <th>Liczba mnoga</th>
+          </tr>
+          <tr>
+            <td>{{tables['other_pronouns']['demonstrative_pronouns'][0].text}}</td>
+            <td>{{tables['other_pronouns']['demonstrative_pronouns'][2].text}}</td>
+          </tr>
+          <tr>
+            <td>{{tables['other_pronouns']['demonstrative_pronouns'][1].text}}</td>
+            <td>{{tables['other_pronouns']['demonstrative_pronouns'][3].text}}</td>
+          </tr>
+        </table>
+
+      </div>
+    </div>
+
+    <div fxFlex="25%" fxFlex.xs="25%" fxFlex.sm="25%">
+      <div class="table-card">
+        <h3 (click)="showInterrogativeTable()">Zaimki pytające </h3>
+        <hr>
+
+        <table class="static hide" id="interrogative-table">
+          <tr *ngFor="let verb of tables['other_pronouns']['interrogative_pronouns']">
+            <td>{{verb.text}}</td>
+          </tr>
+        </table>
+
+      </div>
+    </div>
+
+    <div fxFlex="25%" fxFlex.xs="25%" fxFlex.sm="25%">
+      <div class="table-card">
+        <h3 (click)="showRelativeTable()">Zaimki względne </h3>
+        <hr>
+
+        <table class="static hide" id="relative-table">
+          <tr *ngFor="let verb of tables['other_pronouns']['relative_pronouns']">
+            <td>{{verb.text}}</td>
+          </tr>
+        </table>
+
+      </div>
+    </div>
+
+    <div fxFlex="25%" fxFlex.xs="25%" fxFlex.sm="25%">
+      <div class="table-card">
+        <h3 (click)="showMutualTable()">Zaimki wzajemne </h3>
+        <hr>
+
+        <table class="static hide" id="mutual-table">
+          <tr *ngFor="let verb of tables['other_pronouns']['mutual_pronouns']">
+            <td>{{verb.text}}</td>
+          </tr>
+        </table>
+
+      </div>
+    </div>
+
+    <div fxFlex="50%" fxFlex.xs="100%" fxFlex.sm="100%">
+      <div class="table-card">
+        <h3 (click)="showNumeralsTable()">Liczebniki od 1 do 100</h3>
+        <hr>
+
+        <table class="static hide" id="numerals-table">
+          <tr>
+            <th>Liczebnik główny</th>
+            <th>Liczebnik porządkowy</th>
+          </tr>
+          <tr *ngFor="let verb of tables['numerals']">
+            <td>{{verb.cardinal_number}}</td>
+            <td>{{verb.ordinal}}</td>
+          </tr>
+
+          <tr>
+            <th colspan="2">Przykładowe liczebniki główne powyżej 100</th>
+          </tr>
+          <tr *ngFor="let verb of tables['numerals_examples']">
+            <td colspan="2">{{verb.text}}</td>
+          </tr>
+
+        </table>
+
+      </div>
+    </div>
+
+    <div fxFlex="50%" fxFlex.xs="100%" fxFlex.sm="100%">
+      <div class="table-card">
+        <h3 (click)="showConditionalTable()">Zdania warunkowe</h3>
+        <hr>
+
+        <table class="static hide" id="conditional-table">
+          <tr>
+            <th colspan="2">Zdań warunkowych tzw.zerowego stopnia używamy, mówiąc o faktach oraz sytuacjach, które są
+              zawsze prawdziwe.
+            </th>
+          </tr>
+          <tr>
+            <th>Warunek</th>
+            <th>Rezultat</th>
+          </tr>
+          <tr>
+            <td>{{tables['conditional_sentences'][0].condition}}<br>{{tables['conditional_sentences'][1].condition}}
+            </td>
+            <td>{{tables['conditional_sentences'][0].result}}<br>{{tables['conditional_sentences'][1].result}}</td>
+          </tr>
+
+          <tr>
+            <th colspan="2">Zdań warunkowych pierwszego stopnia używamy, mówiąc o zdarzeniach, które mogą nastapić w
+              przyszłości, jeżeli zaistnieją określone warunki.
+            </th>
+          </tr>
+          <tr>
+            <th>Warunek</th>
+            <th>Rezultat</th>
+          </tr>
+          <tr>
+            <td>{{tables['conditional_sentences'][2].condition}}<br>{{tables['conditional_sentences'][3].condition}}
+            </td>
+            <td>{{tables['conditional_sentences'][2].result}}<br>{{tables['conditional_sentences'][3].result}}</td>
+          </tr>
+
+          <tr>
+            <th colspan="2">Zdań warunkowych drugiego stopnia używamy, mówiąc o obecnych sytuacjach lub stanach, których
+              zmiana jest niemożliwa lub mało prawdopodobna, albo o czymś, co teoretycznie mogłoby nastąpić w
+              przyszłości, ale jest mało realne.
+            </th>
+          </tr>
+          <tr>
+            <th>Warunek</th>
+            <th>Rezultat</th>
+          </tr>
+          <tr>
+            <td>{{tables['conditional_sentences'][4].condition}}<br>{{tables['conditional_sentences'][5].condition}}
+            </td>
+            <td>{{tables['conditional_sentences'][4].result}}<br>{{tables['conditional_sentences'][5].result}}</td>
+          </tr>
+
+        </table>
+
+      </div>
+    </div>
+
+  </div>
+
+
+</div>
+
+<ng-template #contextVerb let-verb='verb'>
+  <tr>
+    <th>{{verb.text}}</th>
+  </tr>
+  <tr *ngFor="let example of verb['examples']">
+    <td style="text-transform: unset">{{example.text}}</td>
+  </tr>
+</ng-template>

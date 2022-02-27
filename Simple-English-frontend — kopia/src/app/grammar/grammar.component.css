@@ -1,0 +1,66 @@
+.container{
+  width: 100%;
+  padding: 2em;
+}
+
+.table-card{
+  background-color: rgba(255, 255, 255, 0.84);
+  padding: 1em;
+  border-radius: 5px;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+
+.table-card h3{
+  color: #676FA3;
+  font-family: 'Ubuntu', sans-serif;
+  height: 70px;
+  text-align: center;
+}
+
+.table-card h3:hover{
+  cursor: pointer;
+}
+
+hr{
+  background-color: #FF5959;
+}
+
+.static{
+  width: 100%;
+  text-align: center;
+}
+
+.static td, th{
+  padding: 1em;
+}
+
+.static th{
+  font-family: 'Oswald', sans-serif;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: #FF5959;
+}
+
+.static td{
+  font-family: 'Ubuntu', sans-serif;
+  color: #676FA3;
+  text-transform: uppercase;
+}
+
+.static td, th{
+  border-bottom: 1px solid #FF5959;
+}
+
+.other td, th{
+  border-right: 1px solid #FF5959;
+  border-left: 1px solid #FF5959;
+  border-top: 1px solid #FF5959;
+}
+
+.show{
+  display: block;
+}
+
+.hide{
+  display: none;
+}

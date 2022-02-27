@@ -1,0 +1,31 @@
+<div class="container">
+
+  <div class="categories-container">
+    <button class="btn category-button"
+            *ngFor="let phraseCategory of phrases; let i = index"
+            id="{{i}}" [ngClass]="{'active' : i == actualCategory}" (click)="setActualCategory(i)">{{phraseCategory.name}}</button>
+  </div>
+
+  <div class="phrases-carousel">
+
+  <img src="assets/images/undo.png" class="navigation-images" [ngClass]="{'disable' : actualPage === 0}" alt="undo" (click)="setActualPage(-1)">
+
+    <div class="phrases-container">
+
+      <img alt="image" class="phrase-image" src="{{imageApi + actualPhrases[actualPage]?.image}}"/>
+
+      <div class="phrase-card" [ngClass]="{'red': actualPage % 2 === 0, 'blue': actualPage % 2 !== 0}">
+
+        <p class="white">{{actualPhrases[actualPage]?.english}}</p>
+        <p [ngClass]="{'bl': actualPage % 2 === 0, 'rd': actualPage % 2 !== 0}" class="show-translate" (click)="showTranslate(actualPage, $event)">Pokaż tłumaczenie</p>
+
+      </div>
+    </div>
+
+    <img src="assets/images/redo.png" class="navigation-images" [ngClass]="{'disable' : actualPage >= maxPage}" alt="redo" (click)="setActualPage(1)">
+
+  </div>
+
+
+
+</div>

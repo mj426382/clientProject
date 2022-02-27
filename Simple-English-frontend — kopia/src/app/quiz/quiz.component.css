@@ -1,0 +1,73 @@
+.container{
+  width: 100%;
+  padding: 2em;
+}
+
+.question{
+  background-color: rgba(255, 255, 255, 0.84);
+  padding: 1em;
+  border-radius: 5px;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+  height: 280px;
+}
+
+.question > h4{
+  color: #676FA3;
+  font-family: 'Ubuntu', sans-serif;
+}
+
+.answers-container{
+  display: flex;
+  flex-direction: column;
+}
+
+.answers-container > label{
+  margin-right: auto;
+
+}
+
+hr{
+  background-color: #FF5959;
+}
+
+.answer{
+  display: flex;
+  flex-direction: row;
+  font-family: 'Oswald', sans-serif;
+  letter-spacing: 0.1em;
+}
+
+.answer img{
+  width: 15px;
+}
+
+.answer label{
+  margin: auto 0 auto 0;
+  outline: none;
+  box-shadow: none;
+}
+
+.correct-answer{
+  color: #6ecb82;
+}
+
+.incorrect-answer{
+  color: #FF5959;
+}
+
+.disabled{
+  display: none;
+}
+
+.buttons{
+  display: flex;
+  flex-direction: row;
+  padding: 2em;
+  width: 100%;
+}
+
+.buttons button{
+  margin: auto;
+  font-family: 'Oswald', sans-serif;
+  letter-spacing: 0.1em;
+}

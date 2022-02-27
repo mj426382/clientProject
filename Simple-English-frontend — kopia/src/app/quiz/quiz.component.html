@@ -1,0 +1,47 @@
+<div class="container">
+
+
+  <div fxLayout="row wrap" fxLayoutGap="25px grid">
+    <div fxFlex="50%" fxFlex.xs="100%" fxFlex.sm="100%" *ngFor=" let question of questionsToShow; let i = index">
+      <ng-container [ngTemplateOutlet]="questionCard" [ngTemplateOutletContext]="{question: question, index: i}"></ng-container>
+    </div>
+  </div>
+
+  <div class="buttons">
+    <button class="btn btn-outline-dark" (click)="clearAllAnswers()">Wyczyść wszystko</button>
+    <button class="btn btn-outline-danger" (click)="getNewQuestions()">Kolejne pytania</button>
+  </div>
+
+</div>
+
+<ng-template #questionCard let-question='question' let-index='i'>
+  <div class="question">
+    <h4>{{question.text}}</h4>
+    <hr>
+    <div ngbRadioGroup class="answers-container">
+
+      <div class="answer">
+        <label  ngbButtonLabel (click)="onAnswerSelected(question, question.answers[0], $event, 0)" class="{{question.text}}">
+          <input ngbButton type="radio" value="{{question.answers[0].id}}" > {{question.answers[0].text}}
+        </label>
+        <img src="assets/images/correct.svg" alt="correct" class="disabled" id="{{question.answers[0].id}}"/>
+      </div>
+
+      <div class="answer">
+        <label ngbButtonLabel (click)="onAnswerSelected(question, question.answers[1], $event, 1)" class="{{question.text}}">
+          <input ngbButton type="radio" value="{{question.answers[1].id}}"> {{question.answers[1].text}}
+        </label>
+        <img src="assets/images/correct.svg" alt="correct" class="disabled" id="{{question.answers[1].id}}"/>
+      </div>
+
+      <div class="answer">
+        <label ngbButtonLabel (click)="onAnswerSelected(question, question.answers[2], $event, 2)" class="{{question.text}}">
+          <input ngbButton type="radio" value="{{question.answers[2].id}}" > {{question.answers[2].text}}
+        </label>
+        <img src="assets/images/correct.svg" alt="correct" class="disabled" id="{{question.answers[2].id}}"/>
+      </div>
+
+    </div>
+
+  </div>
+</ng-template>

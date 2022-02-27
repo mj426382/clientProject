@@ -1,0 +1,103 @@
+.container{
+  display: flex;
+  flex-direction: column;
+  padding: 2em;
+}
+.content{
+  margin: auto;
+}
+
+.categories-container{
+  width: 100%;
+  display: flex;
+  justify-content: space-around;
+}
+
+.category-button{
+  font-family: 'Oswald', sans-serif;
+  letter-spacing: 0.1em;
+  color: #EEF2FF;
+  background-color: #FF5959;
+  text-transform: capitalize;
+}
+
+.category-button:hover{
+  background-color: #676FA3;
+}
+
+.active{
+  background-color: #676FA3;
+}
+
+.phrases-container{
+  padding: 2em;
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+
+}
+
+.phrase-card{
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+  padding: 1em;
+  border-radius: 5px;
+  margin-bottom: 1em;
+  font-size: 1.4em;
+  font-family: 'Ubuntu', sans-serif;
+  text-align: center;
+}
+
+.red{
+  background-color: #FF5959;
+}
+
+.blue{
+  background-color: #676FA3;
+}
+
+.white{
+  color: white;
+  text-shadow: -0.5px -0.5px 0 #000, 0.5px -0.5px 0 #000, -0.5px 0.5px 0 #000, 0.5px 0.5px 0 #000;
+}
+
+.rd{
+  color: #FF5959;
+  text-shadow: -0.5px -0.5px 0 #000, 0.5px -0.5px 0 #000, -0.5px 0.5px 0 #000, 0.5px 0.5px 0 #000;
+}
+
+.bl{
+  color: #676FA3;
+  text-shadow: -0.5px -0.5px 0 #000, 0.5px -0.5px 0 #000, -0.5px 0.5px 0 #000, 0.5px 0.5px 0 #000;
+}
+
+.phrases-carousel{
+  display: flex;
+  flex-direction: row;
+}
+
+.navigation-images{
+  width: 3em;
+  margin: auto 0 auto 0;
+  transition: all .1s ease-in-out;
+}
+
+.navigation-images:hover{
+  transform: scale(1.1);
+  cursor: pointer;
+}
+
+.disable{
+  opacity: 0.2;
+}
+
+
+.show-translate:hover{
+  cursor: pointer;
+}
+
+.phrase-image{
+  width: 100%;
+  border-radius: 5px;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+  margin-bottom: 2em;
+}
